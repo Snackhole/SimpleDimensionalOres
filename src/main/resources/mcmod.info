@@ -1,0 +1,16 @@
+[
+{
+  "modid": "simpledimensionalores",
+  "name": "Simple Dimensional Ores",
+  "description": "Simple ore generation for the End and the Nether.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Snackhole"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
