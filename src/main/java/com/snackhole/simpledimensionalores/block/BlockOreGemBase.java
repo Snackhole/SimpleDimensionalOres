@@ -2,6 +2,10 @@ package com.snackhole.simpledimensionalores.block;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -9,17 +13,27 @@ public class BlockOreGemBase extends BlockOreBase {
     private Item itemDropped;
     private int quantityDroppedBase;
     private int quantityDroppedBaseRandomCeil;
+    private int expMin;
+    private int expMax;
+    private int damageDroppedValue;
 
-    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase) {
+    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int expMin, int expMax) {
         super(name, oreName);
         this.itemDropped = itemDropped;
         this.quantityDroppedBase = quantityDroppedBase;
+        this.expMin = expMin;
+        this.expMax = expMax;
         this.quantityDroppedBaseRandomCeil = 0;
     }
 
-    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int quantityDroppedBaseRandomCeil) {
-        this(name, oreName, itemDropped, quantityDroppedBase);
+    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int expMin, int expMax, int quantityDroppedBaseRandomCeil) {
+        this(name, oreName, itemDropped, quantityDroppedBase, expMin, expMax);
         this.quantityDroppedBaseRandomCeil = quantityDroppedBaseRandomCeil;
+    }
+
+    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int expMin, int expMax, int quantityDroppedBaseRandomCeil, int damageDroppedValue) {
+        this(name, oreName, itemDropped, quantityDroppedBase, expMin, expMax, quantityDroppedBaseRandomCeil);
+        this.damageDroppedValue = damageDroppedValue;
     }
 
     @Override
@@ -43,5 +57,16 @@ public class BlockOreGemBase extends BlockOreBase {
         } else {
             return quantityDropped(random);
         }
+    }
+
+    @Override
+    public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
+        Random rand = world instanceof World ? ((World) world).rand : new Random();
+        return MathHelper.getInt(rand, expMin, expMax);
+    }
+
+    @Override
+    public int damageDropped(IBlockState state) {
+        return damageDroppedValue;
     }
 }
