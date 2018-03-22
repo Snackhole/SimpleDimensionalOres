@@ -3,6 +3,7 @@ package com.snackhole.simpledimensionalores;
 import com.snackhole.simpledimensionalores.block.ModBlocks;
 import com.snackhole.simpledimensionalores.proxy.IProxy;
 import com.snackhole.simpledimensionalores.recipe.ModRecipes;
+import com.snackhole.simpledimensionalores.world.ModWorldGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = SimpleDimensionalOresMain.MODID, version = SimpleDimensionalOresMain.VERSION)
 public class SimpleDimensionalOresMain {
@@ -25,6 +27,7 @@ public class SimpleDimensionalOresMain {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        GameRegistry.registerWorldGenerator(new ModWorldGeneration(), 0);
         proxy.preInit(event);
     }
 
