@@ -17,8 +17,8 @@ public class BlockOreGemBase extends BlockOreBase {
     private int expMax;
     private int damageDroppedValue;
 
-    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int expMin, int expMax) {
-        super(name, oreName);
+    public BlockOreGemBase(String name, String oreName, int harvestLevel, Item itemDropped, int quantityDroppedBase, int expMin, int expMax) {
+        super(name, oreName, harvestLevel);
         this.itemDropped = itemDropped;
         this.quantityDroppedBase = quantityDroppedBase;
         this.expMin = expMin;
@@ -26,13 +26,13 @@ public class BlockOreGemBase extends BlockOreBase {
         this.quantityDroppedBaseRandomCeil = 0;
     }
 
-    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int expMin, int expMax, int quantityDroppedBaseRandomCeil) {
-        this(name, oreName, itemDropped, quantityDroppedBase, expMin, expMax);
+    public BlockOreGemBase(String name, String oreName, int harvestLevel, Item itemDropped, int quantityDroppedBase, int expMin, int expMax, int quantityDroppedBaseRandomCeil) {
+        this(name, oreName, harvestLevel, itemDropped, quantityDroppedBase, expMin, expMax);
         this.quantityDroppedBaseRandomCeil = quantityDroppedBaseRandomCeil;
     }
 
-    public BlockOreGemBase(String name, String oreName, Item itemDropped, int quantityDroppedBase, int expMin, int expMax, int quantityDroppedBaseRandomCeil, int damageDroppedValue) {
-        this(name, oreName, itemDropped, quantityDroppedBase, expMin, expMax, quantityDroppedBaseRandomCeil);
+    public BlockOreGemBase(String name, String oreName, int harvestLevel, Item itemDropped, int quantityDroppedBase, int expMin, int expMax, int quantityDroppedBaseRandomCeil, int damageDroppedValue) {
+        this(name, oreName, harvestLevel, itemDropped, quantityDroppedBase, expMin, expMax, quantityDroppedBaseRandomCeil);
         this.damageDroppedValue = damageDroppedValue;
     }
 

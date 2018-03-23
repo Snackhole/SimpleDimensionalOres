@@ -7,11 +7,12 @@ import net.minecraftforge.oredict.OreDictionary;
 public class BlockOreBase extends BlockBase {
     private String oreName;
 
-    public BlockOreBase(String name, String oreName) {
+    public BlockOreBase(String name, String oreName, int harvestLevel) {
         super(Material.ROCK, name);
         this.oreName = oreName;
         setHardness((float) 3);
         setResistance((float) 5);
+        setHarvestLevel("pickaxe", harvestLevel);
     }
 
     @Override
