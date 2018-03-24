@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod(modid = SimpleDimensionalOresMain.MODID, version = SimpleDimensionalOresMain.VERSION)
 public class SimpleDimensionalOresMain {
     public static final String MODID = "simpledimensionalores";
-    public static final String VERSION = "1";
+    public static final String VERSION = "2";
     @SidedProxy(clientSide = "com.snackhole.simpledimensionalores.proxy.ClientProxy", serverSide = "com.snackhole.simpledimensionalores.proxy.ServerProxy")
     public static IProxy proxy;
     @Mod.Instance
